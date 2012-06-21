@@ -1,21 +1,27 @@
-feature:play
+Feature: Como usuario quiero poder definir las 2 opciones que elijo
 
-scene: right move
-   when i am on the play screen 
-    and put 1 in the number 1 and put 5 in the number 2 and press the risk button
-    then i should see 1 = a 5 = c
+
+Scenario: right move
+      Given i am on "play page"
+      And i put "1" in the textfield "Primero" 
+      And i put "5" in the textfield "Segundo" 
+      When i press "risk"
+      Then i should see "1 = a" "5 = c"
     
-scene:  number 1 empty
-     when i am on the play screen 
-     and put 1 in the number 1 and nothing in the number 2 and press the risk button
-     then i should see "the number 2 is empty"
+scene:  Segundo empty
+      Given i am on "play page" 
+      And i put "1" in the textfield "Primero"
+      And i put " " in the textfield "Segundo"
+      Then i should see "the number 2 is empty"
      
-scene:  number 2 empty
-     when i am on the play screen 
-     and put 5 in the number 2 and nothing in the number 1 and press the risk button
-     then i should see "the number 1 is empty"
+scene:  Primero empty
+      Given i am on "play page" 
+      And i put "5" in the textfield "Segundo" 
+      And i put " " in the textfield "Primero"
+      Then i should see "the number 1 is empty"
      
 scene:  both numbers empty
-     when i am on the play screen 
-      and do not put anything on the number 1 and do not put anything on the number 2 and press the risk button
-     then i should see "the 2 numbers are empty"
+      Given i am on "play page" 
+      And i put " " in the textfield "Primero"
+      And i put " " in the textfield "Segundo"
+      Then i should see "both numbers are empty"
