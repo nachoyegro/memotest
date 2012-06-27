@@ -9,5 +9,5 @@ class MyApplication < Sinatra::Base
 	post '/crear_partida' do
 		erb :crear_partida
 	end
-
+	run! if app_file == $0
 end

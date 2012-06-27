@@ -8,7 +8,7 @@ Feature: Como usuario quiero poder iniciar una partida
   Scenario: Crear Partida
     Given i am on "the home page"
 		When i press "Iniciar Partida"
-		Then I should be on "nueva partida page"
+		Then i should be on "nueva partida page"
    
 
 

@@ -13,8 +13,8 @@ module NavigationHelpers
     when /the home\s?page/
       '/'
 
-		when /hola page/
-			'/hola'
+		when /nueva partida page/
+			'/crear_partida'
 
     # Add more mappings here.
     # Here is an example that pulls values out of the Regexp:
