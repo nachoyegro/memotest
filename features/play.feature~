@@ -1,27 +1,14 @@
-Feature: Como usuario quiero poder definir las 2 opciones que elijo
+Feature: Como usuario quiero poder ver el resultado de arriesgar
 
 
 Scenario: right move
-      Given i am on "play page"
-      And i put "1" in the textfield "Primero" 
-      And i put "5" in the textfield "Segundo" 
-      When i press "risk"
-      Then i should see "1 = a" "5 = c"
-    
-scene:  Segundo empty
-      Given i am on "play page" 
-      And i put "1" in the textfield "Primero"
-      And i put " " in the textfield "Segundo"
-      Then i should see "the number 2 is empty"
-     
-scene:  Primero empty
-      Given i am on "play page" 
-      And i put "5" in the textfield "Segundo" 
-      And i put " " in the textfield "Primero"
-      Then i should see "the number 1 is empty"
-     
-scene:  both numbers empty
-      Given i am on "play page" 
-      And i put " " in the textfield "Primero"
-      And i put " " in the textfield "Segundo"
-      Then i should see "both numbers are empty"
+      		
+     	Given I am on "the home page"
+			And I press "Iniciar Partida"
+			And I fill in "cantPares" with "28"
+			And I press "OK"
+      And I fill in "opcion1" with "1"
+			And I fill in "opcion2" with "3" 
+      When I press "OK"
+      Then I should see "1 = a" 
+			And I should see "3 = b"
