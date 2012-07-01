@@ -40,8 +40,8 @@ class MyApplication < Sinatra::Base
 		partida.arriesgar(opcion1, opcion2)#Arriesgo las opciones
 		params[:opcion1] = opcion1
 		params[:opcion2] = opcion2
-		params[:resultado1] = partida.get_fichas[Integer(opcion1)]
-		params[:resultado2] = partida.get_fichas[Integer(opcion2)]
+		params[:resultado1] = partida.get_fichas[Integer(opcion1)].dar_vuelta
+		params[:resultado2] = partida.get_fichas[Integer(opcion2)].dar_vuelta
 		session[:memotest] = partida
 		erb :resultado
 	end

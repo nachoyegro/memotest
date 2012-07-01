@@ -6,3 +6,13 @@
 </br>
 <%=params[:opcion2]%> = <%=params[:resultado2]%>
 
+
+<table>
+  <% for i in session[:memotest].get_fichas %>
+<tr>
+    <%= i.estado %>
+  <%end%>
+</table>
+
+
+

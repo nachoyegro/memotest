@@ -5,6 +5,13 @@ require './exceptions'
 
 class TestMemoTest < Test::Unit::TestCase
 
+	def setup
+		@memotest = Memotest.new 3
+		@set_de_fichas = [Ficha.new('a'), Ficha.new('a'), Ficha.new('b'), Ficha.new('b'), Ficha.new('c'), Ficha.new('c')]
+		@memotest.set_fichas_default(@set_de_fichas.dup)
+
+	end
+
   def test_crear_partida_set_cantidad_correcta_de_pares
 		#act
 		memotest = Memotest.new 10 #Inicializo el juego con 10 pares
@@ -16,47 +23,25 @@ class TestMemoTest < Test::Unit::TestCase
   end
 
 	def test_se_mezcla_set_de_fichas
-		memotest = Memotest.new 3
-		set_de_fichas = ['a', 'a', 'b', 'b', 'c', 'c']
-		memotest.set_fichas_default(set_de_fichas.dup)
-		memotest.iniciar_partida() #Se mezclan las fichas
-		actual = memotest.get_fichas
-		assert_not_equal(actual, set_de_fichas)
+		@memotest.iniciar_partida() #Se mezclan las fichas
+		actual = @memotest.get_fichas
+		assert_not_equal(actual, @set_de_fichas)
 	end
 
 	def test_adivino_fichas
-		memotest = Memotest.new 3
-		set_de_fichas = ['a', 'a', 'b', 'b', 'c', 'c']
-		memotest.set_fichas_default(set_de_fichas)
-		assert (memotest.arriesgar 0, 1), "Esto es verdadero"
+		assert (@memotest.arriesgar 0, 1), "Esto es verdadero"
 	end
 
 	def test_no_adivino_fichas
-		memotest = Memotest.new 3
-		set_de_fichas = ['a', 'a', 'b', 'b', 'c', 'c']
-		memotest.set_fichas_default(set_de_fichas)
-		assert not(memotest.arriesgar 0, 4), "Esto es Falso"
+		assert not(@memotest.arriesgar 0, 4), "Esto es Falso"
 	end
 
-	def test_adivino_y_saco_fichas
-		memotest = Memotest.new 3
-		set_de_fichas = ['a', 'a', 'b', 'b', 'c', 'c']
-		memotest.set_fichas_default(set_de_fichas)
-		memotest.arriesgar 0, 1 #Adivino
-		
-		expected = 4 #Espero que queden 4 fichas
-		actual = memotest.get_fichas.size
-		assert_equal(actual, expected)
-	end
 
 	def test_no_adivino_y_no_saco_fichas
-		memotest = Memotest.new 3
-		set_de_fichas = ['a', 'a', 'b', 'b', 'c', 'c']
-		memotest.set_fichas_default(set_de_fichas)
-		memotest.arriesgar 0, 4 # NO adivino
+		@memotest.arriesgar 0, 4 # NO adivino
 		
 		expected = 6 #Espero que queden todas las fichas
-		actual = memotest.get_fichas.size
+		actual = @memotest.get_fichas.size
 		assert_equal(actual, expected)
 
 	end

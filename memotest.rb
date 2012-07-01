@@ -1,4 +1,5 @@
 require './exceptions'
+require './ficha'
 
 class Memotest
 
@@ -7,7 +8,7 @@ class Memotest
 			raise CaracteresInvalidosException.new
 		end
 		@pares = cantPares
-		@fichas = ['a', 'b', 'c', 'd', 'e', 'f', 'g', 'h', 'i', 'j', 'k', 'l', 'm', 'n', 'o', 'p', 'q', 'r', 's', 't', 'u', 'v', 'w', 'x', 'y', 'z', 'a', 'b'] #28 letras
+		@fichas = [Ficha.new('a'), Ficha.new('b'), Ficha.new('c'), Ficha.new('d'), Ficha.new('e'), Ficha.new('f'), Ficha.new('g'), Ficha.new('h'), Ficha.new('i'), Ficha.new('j'), Ficha.new('k'), Ficha.new('l'), Ficha.new('m'), Ficha.new('n'), Ficha.new('o'), Ficha.new('p'), Ficha.new('q'), Ficha.new('r'), Ficha.new('s'), Ficha.new('t'), Ficha.new('u'), Ficha.new('v'), Ficha.new('w'), Ficha.new('x'), Ficha.new('y'), Ficha.new('z'), Ficha.new('a'), Ficha.new('b')] #28 letras
 		@set_de_fichas = []
 		self.inicializar_pares()
 		@intento1 = nil
@@ -61,10 +62,10 @@ class Memotest
 		y = Integer(intent2)
 		@intento1 = @set_de_fichas[x]
 		@intento2 = @set_de_fichas[y]
-		if @intento1 == @intento2
+		if @intento1.dar_vuelta == @intento2.dar_vuelta
 			retornable = true
-			@set_de_fichas.delete_at x
-			@set_de_fichas.delete_at y
+			@set_de_fichas[x].adivinaron
+			@set_de_fichas[y].adivinaron
 		end
 		return retornable
 	end
