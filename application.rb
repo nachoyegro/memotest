@@ -19,7 +19,12 @@ class MyApplication < Sinatra::Base
 	post '/jugando' do
 		cantFichas = params[:cantPares]
 		begin
-			partida = Memotest.new Integer(cantFichas)
+			 if session[:memotest].nil?
+			  partida = Memotest.new Integer(cantFichas)
+			  session[:memotest] = partida #Guardo la partida en la sesion
+			 else
+			  partida = session[:memotest]
+			 end
 			rescue DemasiadosParesException
 				erb :demasiados_pares_error
 			rescue PocosParesException
@@ -27,7 +32,7 @@ class MyApplication < Sinatra::Base
 			rescue ArgumentError
 				erb :caracteres_invalidos_error
 			else
-				session[:memotest] = partida #Guardo la partida en la sesion
+				@pares = partida.get_fichas
 				erb :jugando
 		end
 	end
@@ -43,6 +48,7 @@ class MyApplication < Sinatra::Base
 		params[:resultado1] = partida.get_fichas[Integer(opcion1)].dar_vuelta
 		params[:resultado2] = partida.get_fichas[Integer(opcion2)].dar_vuelta
 		session[:memotest] = partida
+		@pares =partida.get_fichas
 		erb :resultado
 	end
 

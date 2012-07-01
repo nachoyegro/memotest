@@ -1,18 +1,20 @@
 <html>
+<form action="/jugando" method="post">
+	
+	<h2> Su resultado es: </h2>
 
-<h2> Su resultado es: </h2>
+  <%=params[:opcion1]%> = <%=params[:resultado1]%>
+  </br>
+  <%=params[:opcion2]%> = <%=params[:resultado2]%>
 
-<%=params[:opcion1]%> = <%=params[:resultado1]%>
-</br>
-<%=params[:opcion2]%> = <%=params[:resultado2]%>
+  <% @pares.each do |i| %>
+    <div style="width:100px;border:1px solid black;"> <%= i.estado_actual %> </div> 
+  <% end %>
 
+  <input type="submit" value="OK"/> 
+</form> 
+</html>
 
-<table>
-  <% for i in session[:memotest].get_fichas %>
-<tr>
-    <%= i.estado %>
-  <%end%>
-</table>
 
 
 

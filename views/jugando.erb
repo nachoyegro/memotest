@@ -2,6 +2,11 @@
 
 <body>
 <form action="/resultado" method="post">
+	
+  <% @pares.each do |i| %>
+    <div style="width:100px;border:1px solid black;"> <%= i.estado_actual %> </div> 
+  <% end %>
+
 	<input type="text" name="opcion1" id="opcion1">
 	<input text="text" name="opcion2" id="opcion2">
   <input type="submit" value="OK"/>  
