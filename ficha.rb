@@ -13,7 +13,7 @@ class Ficha
 	end
 
 	def estado()
-		return self.estado.estado_de_jugada
+		return @estado.estado_de_jugada self
 	end
 
 	def adivinaron()

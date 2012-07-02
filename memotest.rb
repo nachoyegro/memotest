@@ -60,12 +60,12 @@ class Memotest
 		retornable = false
 		x = Integer(intent1)
 		y = Integer(intent2)
-		@intento1 = @set_de_fichas[x]
-		@intento2 = @set_de_fichas[y]
+		@intento1 = @set_de_fichas[x - 1]
+		@intento2 = @set_de_fichas[y - 1]
 		if @intento1.dar_vuelta == @intento2.dar_vuelta
 			retornable = true
-			@set_de_fichas[x].adivinaron
-			@set_de_fichas[y].adivinaron
+			@set_de_fichas[x - 1].adivinaron
+			@set_de_fichas[y - 1].adivinaron
 		end
 		return retornable
 	end
