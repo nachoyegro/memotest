@@ -29,16 +29,16 @@ class TestMemoTest < Test::Unit::TestCase
 	end
 
 	def test_adivino_fichas
-		assert (@memotest.arriesgar 0, 1), "Esto es verdadero"
+		assert (@memotest.arriesgar 1, 2), "Esto es verdadero"
 	end
 
 	def test_no_adivino_fichas
-		assert not(@memotest.arriesgar 0, 4), "Esto es Falso"
+		assert not(@memotest.arriesgar 1, 4), "Esto es Falso"
 	end
 
 
 	def test_no_adivino_y_no_saco_fichas
-		@memotest.arriesgar 0, 4 # NO adivino
+		@memotest.arriesgar 1, 4 # NO adivino
 		
 		expected = 6 #Espero que queden todas las fichas
 		actual = @memotest.get_fichas.size
