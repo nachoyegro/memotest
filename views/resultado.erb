@@ -6,12 +6,18 @@
   <%=params[:opcion1]%> = <%=params[:resultado1]%>
   </br>
   <%=params[:opcion2]%> = <%=params[:resultado2]%>
-
+	</br>
+	<h2>Pares restantes: <%= @faltan %></h2>
   <% @pares.each do |i| %>
     <div style="width:100px;border:1px solid black;"> <%= i.estado %> </div> 
   <% end %>
 
   <input type="submit" value="OK"/> 
+
+	<% if @faltan == 0 %>
+		<h2>Ganaste</h2>
+	<% end %>
+
 </form> 
 </html>
 

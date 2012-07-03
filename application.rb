@@ -50,10 +50,8 @@ class MyApplication < Sinatra::Base
 		params[:resultado2] = partida.get_fichas[Integer(opcion2) - 1].dar_vuelta
 		session[:memotest] = partida
 		@pares =partida.get_fichas
-		@falta= partida.get_pares
-		
-		  erb :resultado
-		
+		@faltan= partida.get_pares
+		erb :resultado
 	end
 
 	

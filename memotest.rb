@@ -59,6 +59,7 @@ class Memotest
 	
 	def get_pares
 	  return @pares
+	end
 
 	def arriesgar(intent1, intent2)
 		x = Integer(intent1)
@@ -69,6 +70,7 @@ class Memotest
 			@set_de_fichas[x - 1].adivinaron
 			@set_de_fichas[y - 1].adivinaron
 			@pares -=1
+		end
 		if @pares == 0
 		  @ganaste=true
 		end

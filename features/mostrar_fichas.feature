@@ -1,4 +1,5 @@
-Feature: Como usuario quiero poder ganar una partida
+Feature: Como usuario quiero poder ver el estado de las fichas
+
 
 Background:
      	Given I am on "the home page"
@@ -6,15 +7,18 @@ Background:
 			And I fill in "cantPares" with "2"
 			And I press "OK"
 
-			
-Scenario: Partida ganada
+Scenario: Muestra fichas boca abajo
+			I should see "*"
 
+
+Scenario: No quedan fichas por mostrar
 			And I fill in "opcion1" with "1"
 			And I fill in "opcion2" with "2" 
-      When I press "OK"
+      And I press "OK"
 			And I press "OK"
       And I fill in "opcion1" with "3"
 			And I fill in "opcion2" with "4" 
-      When I press "OK"
-			Then I should see "Ganaste"
-      
+			And I press "OK"
+			And I press "OK"
+			Then I should not see "*"
+			
