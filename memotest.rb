@@ -13,6 +13,7 @@ class Memotest
 		self.inicializar_pares()
 		@intento1 = nil
 		@intento2 = nil
+		@ganaste=false
 	end
 
 	def inicializar_pares()
@@ -55,19 +56,23 @@ class Memotest
 	def get_intento2
 		return @intento2
 	end
+	
+	def get_pares
+	  return @pares
 
 	def arriesgar(intent1, intent2)
-		retornable = false
 		x = Integer(intent1)
 		y = Integer(intent2)
 		@intento1 = @set_de_fichas[x - 1]
 		@intento2 = @set_de_fichas[y - 1]
-		if @intento1.dar_vuelta == @intento2.dar_vuelta
-			retornable = true
+		if @intento1.dar_vuelta == @intento2.dar_vuelta 
 			@set_de_fichas[x - 1].adivinaron
 			@set_de_fichas[y - 1].adivinaron
+			@pares -=1
+		if @pares == 0
+		  @ganaste=true
 		end
-		return retornable
+
 	end
 end
 

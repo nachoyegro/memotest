@@ -225,9 +225,6 @@ Given /^I am viewing "([^"]*)"$/ do |arg1|
   pending # express the regexp above with the code you wish you had
 end
 
-Then /^I should see "Hello, world!$/ do
-  pending # express the regexp above with the code you wish you had
-end
 
 Given /^i am on "([^"]*)"$/ do |page_name|
   visit path_to(page_name)
@@ -270,5 +267,9 @@ Then /^i should see "([^"]*)"$/ do |text|
   page.should have_content(text)
 end
 
+Then /^i should see "([^"]*)" equals to "([^"]*)"$/ do |arg1, arg2|
+  page.should have_content(arg1)
+  page.should have_content(arg2)
+end
 
 

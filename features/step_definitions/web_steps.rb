@@ -267,5 +267,9 @@ Then /^i should see "([^"]*)"$/ do |text|
   page.should have_content(text)
 end
 
+Then /^i should see "([^"]*)" equals to "([^"]*)"$/ do |arg1, arg2|
+  page.should have_content(arg1,arg2)
+
+end
 
 

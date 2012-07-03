@@ -33,6 +33,7 @@ class MyApplication < Sinatra::Base
 				erb :caracteres_invalidos_error
 			else
 				@pares = partida.get_fichas
+        @faltan=partida.get_pares
 				erb :jugando
 		end
 	end
@@ -49,7 +50,10 @@ class MyApplication < Sinatra::Base
 		params[:resultado2] = partida.get_fichas[Integer(opcion2) - 1].dar_vuelta
 		session[:memotest] = partida
 		@pares =partida.get_fichas
-		erb :resultado
+		@falta= partida.get_pares
+		
+		  erb :resultado
+		
 	end
 
 	
