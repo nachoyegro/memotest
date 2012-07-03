@@ -62,6 +62,7 @@ class Memotest
 	end
 
 	def arriesgar(intent1, intent2)
+		retornable = false
 		x = Integer(intent1)
 		y = Integer(intent2)
 		@intento1 = @set_de_fichas[x - 1]
@@ -70,11 +71,12 @@ class Memotest
 			@set_de_fichas[x - 1].adivinaron
 			@set_de_fichas[y - 1].adivinaron
 			@pares -=1
+			retornable = true
 		end
 		if @pares == 0
 		  @ganaste=true
 		end
-
+		return retornable
 	end
 end
 
