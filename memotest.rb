@@ -10,7 +10,7 @@ class Memotest
 		@pares = cantPares
 		@fichas = [Ficha.new('a'), Ficha.new('b'), Ficha.new('c'), Ficha.new('d'), Ficha.new('e'), Ficha.new('f'), Ficha.new('g'), Ficha.new('h'), Ficha.new('i'), Ficha.new('j'), Ficha.new('k'), Ficha.new('l'), Ficha.new('m'), Ficha.new('n'), Ficha.new('o'), Ficha.new('p'), Ficha.new('q'), Ficha.new('r'), Ficha.new('s'), Ficha.new('t'), Ficha.new('u'), Ficha.new('v'), Ficha.new('w'), Ficha.new('x'), Ficha.new('y'), Ficha.new('z'), Ficha.new('a'), Ficha.new('b')] #28 letras
 		@set_de_fichas = []
-		self.inicializar_pares
+		self.inicializar_pares()
 		@intento1 = nil
 		@intento2 = nil
 		@ganaste=false
@@ -37,15 +37,15 @@ class Memotest
 	end
 
 
-	def iniciar_partida
+	def iniciar_partida()
 		@set_de_fichas.shuffle!
 	end
 
-	def cant_fichas
+	def cant_fichas()
 		return @set_de_fichas.size
 	end
 
-	def get_fichas
+	def get_fichas()
 		return @set_de_fichas
 	end
 

@@ -3,8 +3,9 @@ rvm:
   - 1.9.3
 
 script: travis-lint
+script: ruby memo_tests.rb
 script: cucumber
-script: rvm ruby memo_tests.rb
+
 
 
 notifications:
