@@ -2,8 +2,10 @@ language: ruby
 rvm:
 - 1.9.3
 
-script: bundle exec rspec spec cucumber
+script: cucumber
+script: rvm ruby memo_tests.rb
 
-Cucumber::Rake::Task.new(:cucumber) do |task|
-  task.cucumber_opts = ["features"]
-end
+notifications:
+  email:
+    - nachoyegro@gmail.com
+    - mate.qac@gmail.com
