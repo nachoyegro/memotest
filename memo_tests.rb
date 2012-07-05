@@ -29,7 +29,7 @@ class TestMemoTest < Test::Unit::TestCase
 	end
 
 	def test_adivino_fichas
-		assert (@memotest.arriesgar 1, 2), true
+		assert_equal (@memotest.arriesgar 1, 2), true
 	end
 
 	def test_no_adivino_fichas
