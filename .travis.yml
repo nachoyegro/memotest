@@ -1,11 +1,17 @@
 language: ruby
 rvm:
-- 1.9.3
-
+  - 1.9.3
+  - rbx-19mode
+  - ruby-head
+  
 script: cucumber
 script: rvm ruby memo_tests.rb
+script: exec rake cucumber
 
 notifications:
   email:
     - nachoyegro@gmail.com
     - mate.qac@gmail.com
+    
+
+
