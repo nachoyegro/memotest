@@ -33,7 +33,7 @@ class TestMemoTest < Test::Unit::TestCase
 	end
 
 	def test_no_adivino_fichas
-		assert not(@memotest.arriesgar 1, 4), "Esto es Falso"
+		assert_equal (@memotest.arriesgar 1, 4), false
 	end
 
 
