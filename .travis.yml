@@ -3,3 +3,7 @@ rvm:
 - 1.9.3
 
 script: bundle exec rspec spec cucumber
+
+Cucumber::Rake::Task.new(:cucumber) do |task|
+  task.cucumber_opts = ["features"]
+end
